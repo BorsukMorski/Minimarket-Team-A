@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
 
-  t.belongs_to :customer
-  t.belongs_to :product
+  belongs_to :customer
+  belongs_to :product
 end
