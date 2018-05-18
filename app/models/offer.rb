@@ -1,5 +1,11 @@
 class Offer < ApplicationRecord
 
-  t.belongs_to :customer
-  t.belongs_to :product
+  validates :suggested_price, presence: true, numericality: { greater_than: 0 }
+
+
+
+  #validates :status
+
+  has_many :customers
+  belongs_to :product
 end
