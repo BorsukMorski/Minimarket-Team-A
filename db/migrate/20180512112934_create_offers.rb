@@ -7,6 +7,12 @@ class CreateOffers < ActiveRecord::Migration[5.1]
       #tutaj ewentualnie jakaś jeszcze kolumna, jeśli potrzebna do oferty
       t.timestamps
 
+change_column_default(
+  :offers,
+  :status,
+  from: nil,
+  to: "proposed"
+)
 
 
 
