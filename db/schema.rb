@@ -19,8 +19,7 @@ ActiveRecord::Schema.define(version: 20180507202150) do
     t.string "isbn"
     t.integer "pages"
     t.string "vendor"
-
-ActiveRecord::Schema.define(version: 20180509185115) do
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
