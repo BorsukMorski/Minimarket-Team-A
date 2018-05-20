@@ -10,13 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180509185115) do
+ActiveRecord::Schema.define(version: 20180520104938) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.decimal "suggested_price"
+    t.string "status", default: "proposed"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_offers_on_product_id"
   end
 
 end
