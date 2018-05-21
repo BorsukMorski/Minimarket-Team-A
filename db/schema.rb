@@ -9,9 +9,10 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
+ActiveRecord::Schema.define(version: 20180514123649) do
 
 
-ActiveRecord::Schema.define(version: 20180507202150) do
+
 
   create_table "products", force: :cascade do |t|
     t.string "title"
@@ -19,9 +20,18 @@ ActiveRecord::Schema.define(version: 20180507202150) do
     t.string "isbn"
     t.integer "pages"
     t.string "vendor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
+  create_table "merchants", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
   create_table "customers", force: :cascade do |t|
+
     t.string "name"
     t.string "email"
     t.datetime "created_at", null: false
