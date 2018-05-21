@@ -22,10 +22,13 @@ ActiveRecord::Schema.define(version: 20180514123649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+  
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "isbn"
+    t.integer "pages"
+    t.string "vendor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -36,4 +39,12 @@ ActiveRecord::Schema.define(version: 20180514123649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+  
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
 end
