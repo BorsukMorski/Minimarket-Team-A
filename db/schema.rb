@@ -10,27 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180514123649) do
+ActiveRecord::Schema.define(version: 20180527094420) do
 
-  create_table "offers", force: :cascade do |t|
-    t.decimal "suggested_price"
-    t.string "status", default: "proposed"
-    t.integer "product_id"
+  create_table "customers", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["product_id"], name: "index_offers_on_product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-  
-  create_table "products", force: :cascade do |t|
-    t.string "title"
-    t.string "author"
-    t.string "isbn"
-    t.integer "pages"
-    t.string "vendor"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "password_digest"
   end
 
   create_table "merchants", force: :cascade do |t|
@@ -39,12 +26,27 @@ ActiveRecord::Schema.define(version: 20180514123649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-  
-  create_table "customers", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
+
+  create_table "offers", force: :cascade do |t|
+    t.decimal "suggested_price"
+    t.string "status", default: "proposed"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_offers_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.string "author"
+    t.string "isbn"
+    t.integer "pages"
+    t.integer "products_id"
+    t.integer "merchant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["merchant_id"], name: "index_products_on_merchant_id"
+    t.index ["products_id"], name: "index_products_on_products_id"
   end
 
 end
