@@ -1,8 +1,5 @@
 class DashboardController < ApplicationController
   def new
+    p session
   end
-
-  def show
-  end
-
 end
