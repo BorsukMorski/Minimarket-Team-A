@@ -1,5 +1,5 @@
 class MerchantsController < ApplicationController
-  before_action :reset_session
+  before_action :reset_session, except:[ :index]
 
   def index
     require_valid_merchant!
