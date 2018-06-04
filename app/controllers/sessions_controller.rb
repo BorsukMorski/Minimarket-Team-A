@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_action :require_valid_merchant!, except: [:destroy]
+  #skip_before_action :require_valid_merchant!, except: [:destroy]
 
   def new
   end

@@ -5,4 +5,8 @@
   <div class='alert alert-success'><%= flash[:success] %></div>
 <% end %>
 
-<%= link_to 'Click here to log out.', logout_path %>
+<% if @merchant.nil?  %>
+  <%= link_to 'Click here to log in.', login_path %>
+<% else %>
+  <%= link_to 'Click here to log out.', logout_path %>
+<% end %>
