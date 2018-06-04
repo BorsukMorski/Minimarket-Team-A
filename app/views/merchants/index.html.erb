@@ -1,0 +1,12 @@
+<h1>Merchant Panel</h1>
+<p>Welcome <%= @merchant.name %></p>
+
+<% if flash[:success] %>
+  <div class='alert alert-success'><%= flash[:success] %></div>
+<% end %>
+
+<% if @merchant.nil?  %>
+  <%= link_to 'Click here to log in.', login_path %>
+<% else %>
+  <%= link_to 'Click here to log out.', logout_path %>
+<% end %>
