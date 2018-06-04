@@ -1,6 +1,9 @@
 class MerchantsController < ApplicationController
-  skip_before_action :require_valid_merchant!
   before_action :reset_session
+
+  def index
+    require_valid_merchant!
+  end
 
   def new
     @merchant = Merchant.new
@@ -15,6 +18,13 @@ class MerchantsController < ApplicationController
       redirect_to root_path
     else
       render :new
+    end
+  end
+
+  def require_valid_merchant!
+    if current_merchant.nil?
+      flash[:error] = 'You must be logged in to access that page!'
+      redirect_to login_path
     end
   end
 

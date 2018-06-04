@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   resources :sessions, only: [:create]
-  resources :merchants, only: [:new, :create]
+  resources :merchants, only: [:new, :create, :index]
+
 end
