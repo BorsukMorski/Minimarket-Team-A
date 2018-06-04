@@ -16,7 +16,7 @@ class MerchantsController < ApplicationController
     else
       render :new
     end
-
+  end
       def merchant_params
     params.require(:merchant).permit(:name, :email, :password, :password_confirmation)
   end
