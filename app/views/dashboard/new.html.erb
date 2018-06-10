@@ -1,10 +1,18 @@
 <h1>Dashboard#new</h1>
 <p>Find me in app/views/dashboard/new.html.erb</p>
 
-<% if session[:customer_id].nil? %>
-  <%= link_to "login", login_path %>
-  <%= link_to "signup", signup_path %>
+<% if c_session[:customer_id].nil? %>
+  <%= link_to "customer/login", login_path %>
+  <%= link_to "customer/signup", signup_path %>
 <% else %>
   <p>Siemaneczko <%= current_customer.name %></p>
+  <%= link_to "logout", logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<% if m_session[:merchant_id].nil? %>
+  <%= link_to "merchant/login", login_path %>
+  <%= link_to "merchant/signup", signup_path %>
+<% else %>
+  <p>Siemaneczko <%= current_merchant.name %></p>
   <%= link_to "logout", logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
