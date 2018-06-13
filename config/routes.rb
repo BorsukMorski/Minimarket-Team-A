@@ -6,12 +6,12 @@ Rails.application.routes.draw do
 
   get 'customer/signup', to: 'customers#new'
   get 'merchants/signup', to: 'merchants#new'
-  get 'customer/login', to: 'c_sessions#new'
-  get 'merchant/login', to: 'm_sessions#new'
-  delete 'customer/logout', to: 'c_sessions#destroy'
-  get 'merchant/logout', to: 'm_sessions#destroy'
+  get 'customer/login', to: 'sessions#new'
+  get 'merchant/login', to: 'sessions#new'
+  delete 'customer/logout', to: 'sessions#destroy'
+  get 'merchant/logout', to: 'sessions#destroy'
 
-  post 'customer/login', to: 'c_sessions#create'
+  post 'customer/login', to: 'sessions#create'
 
 resources :customers, only: [:new, :create]
 resources :c_sessions, only: [:new, :create]
