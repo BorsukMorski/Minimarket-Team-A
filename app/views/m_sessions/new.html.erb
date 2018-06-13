@@ -5,7 +5,7 @@
 <div class='alert alert-danger'><%= flash[:error] %></div>
 <% end %>
 
-<%= form_for :m_session, url: m_sessions_path do |f| %>
+<%= form_for :session, url: sessions_path do |f| %>
   <div class='form-group'>
     <%= f.label :email %>
     <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>

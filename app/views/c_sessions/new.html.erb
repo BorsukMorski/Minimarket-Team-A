@@ -1,6 +1,6 @@
 <h1>Zaloguj się jako Customer</h1>
 
-<%= form_for(:c_session, url: login_path) do |f| %>
+<%= form_for(:session, url: login_path) do |f| %>
   <%= f.email_field :email, :placeholder => "Email" %>
   <%= f.password_field :password, :placeholder => "Hasło" %>
   <%= f.submit "Zaloguj się", class: "btn-submit" %>

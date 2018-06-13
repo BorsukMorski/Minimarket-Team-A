@@ -1,5 +1,5 @@
 class MerchantsController < ApplicationController
-  before_action :reset_session_m, except:[ :index]
+  before_action :reset_session, except:[ :index]
 
   def index
     require_valid_merchant!
@@ -13,7 +13,7 @@ class MerchantsController < ApplicationController
     @merchant = Merchant.new(merchant_params)
 
     if @merchant.save
-      session_m[:merchant_id] = @merchant.id
+      session[:merchant_id] = @merchant.id
       flash[:success] =  'You have successfully created an account!'
       redirect_to root_path
     else
