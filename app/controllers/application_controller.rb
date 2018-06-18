@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   def current_customer
     @current_customer ||= Customer.find(session[:customer_id]) if session[:customer_id]
   end
-  helper_method :current_customer
+  helper_method :current_customer, :current_merchant
 
   #def require_user
   #  redirect_to '/login' unless current_user

@@ -6,7 +6,7 @@
 <% end %>
 
 <% if @merchant.nil?  %>
-  <%= link_to 'Click here to log in.', login_path %>
+  <%= link_to 'Click here to log in.', merchant_login_path %>
 <% else %>
-  <%= link_to 'Click here to log out.', logout_path %>
+  <%= link_to 'Click here to log out.', merchant_logout_path %>
 <% end %>
