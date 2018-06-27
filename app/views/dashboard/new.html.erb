@@ -1,5 +1,5 @@
-<h1>Dashboard#new</h1>
-<p>Find me in app/views/dashboard/new.html.erb</p>
+<h1 class="welcome">Witamy w Minimarkecie</h1>
+<p class="second_text">Zaloguj się, aby kontynuować</p>
 
 <% if session[:customer_id].nil? %>
   <%= link_to "Zaloguj się jako KLIENT", customer_login_path %>
