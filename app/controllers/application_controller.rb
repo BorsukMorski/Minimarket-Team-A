@@ -19,4 +19,13 @@ class ApplicationController < ActionController::Base
       @merchant ||= Merchant.find(session[:merchant_id])
     end
   end
+
+  def require_customer
+    redirect_to '/signup' unless
+    current_customer.customer?
+  end
+
+  def require_merchant
+    redirect_to login_path unless
+    current_merchant.merchant?
 end

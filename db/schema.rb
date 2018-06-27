@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20180527094420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "role"
   end
 
   create_table "merchants", force: :cascade do |t|
@@ -26,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180527094420) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
+    t.string "role"
   end
 
   create_table "offers", force: :cascade do |t|

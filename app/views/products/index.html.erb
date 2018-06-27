@@ -1,1 +1,26 @@
 <h1>List of all products</h1>
+
+<%= link_to "Nowy Produkt", new_merchant_product_path %>
+<table>
+  <tr>
+    <th>Tytuł</th>
+    <th>Autor</th>
+    <th>isbn</th>
+    <th>Ilość stron</th>
+    <th></th>
+  </tr>
+
+  <% @products.each do |product| %>
+    <tr>
+      <td><%= product.title %></td>
+      <td><%= product.author %></td>
+      <td><%= product.isbn %></td>
+      <td><%= product.pages %></td>
+      <td><%= link_to 'Pokaż Produkty', product_path(product) %></td>
+      <td><%= link_to 'Edytuj Produkty', edit_product_path(product) %></td>
+      <td><%= link_to 'Usuń Produkty', product_path(product),
+      method: :delete,
+      data: { confirm: 'Czy chcesz usunąć Produkt?' } %></td>
+    </tr>
+  <% end %>
+</table>

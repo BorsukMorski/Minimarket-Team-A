@@ -1,0 +1,22 @@
+<h1>Produkt</h1>
+<p>
+  <strong>Tytuł</strong>
+  <%= @product.title %>
+</p>
+
+<p>
+  <strong>Autor</strong>
+  <%= @product.author %>
+</p>
+
+<p>
+  <strong>isbn</strong>
+  <%= @product.isbn %>
+</p>
+
+<p>
+  <strong>Ilość stron</strong>
+  <%= @product.pages %>
+</p>
+<%= link_to 'Powrót do listy Produktów', merchant_products_path %>
+<%= link_to 'Edytuj Produkty', edit_product_path(product) %>
