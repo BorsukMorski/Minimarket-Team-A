@@ -1,0 +1,15 @@
+<% if session[:customer_id].nil? %>
+  <%= link_to "Zaloguj się jako KLIENT", customer_login_path %>
+  <%= link_to "Zarejestruj się jako KLIENT", customer_signup_path %>
+<% else %>
+  <p>Siemaneczko <%= current_customer.name %></p>
+  <%= link_to "logout", customer_logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+
+<% if session[:merchant_id].nil? %>
+  <%= link_to "Zaloguj się jako SPRZEDAWCA", merchant_login_path %>
+  <%= link_to "Zarejestruj się jako SPRZEDAWCA", merchant_signup_path %>
+<% else %>
+  <p>Siemaneczko <%= current_merchant.name %></p>
+  <%= link_to "logout", merchant_logout_path, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>

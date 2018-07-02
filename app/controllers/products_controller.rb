@@ -1,8 +1,15 @@
 class ProductsController < ApplicationController
 before_action :require_customer, only: [:show]
-before_action :require_merchant, only: [:show, :edit, :create, :update, :destroy]
+before_action :require_merchant, only: [:show, :edit, :create, :update, :destroy, :new]
   def index
-    @products = Product.all
+    if  current_merchant.present?
+      #alternatywne rozw: @products = Product.where(merchant_id: @merchant.id)
+      @products = @merchant.products
+    elsif current_customer.present?
+      @products = Product.all
+    else
+      redirect_to root_path
+    end
   end
 
   def show
@@ -20,10 +27,9 @@ before_action :require_merchant, only: [:show, :edit, :create, :update, :destroy
   def create
     @product = Product.new(product_params)
     if @product.save
-      session[:product_id] = @product.id
       redirect_to products_path
     else
-      redirect_to product_new_path
+      render :new
     end
   end
 
@@ -45,6 +51,6 @@ before_action :require_merchant, only: [:show, :edit, :create, :update, :destroy
 
 private
   def product_params
-    params.require(:product).permit(:author, :title, :isbn)
+    params.require(:product).permit(:author, :title, :isbn,:pages,:merchant_id)
   end
 end

@@ -5,7 +5,17 @@
 <%= f.text_field :author, :placeholder => "Autor" %>
 <%= f.text_field :isbn, :placeholder => "ISBN" %>
 <%= f.number_field :pages, :placeholder => "Liczba stron" %>
+<%= f.hidden_field :merchant_id, :value => @merchant.id %>
 <%= f.submit "Dodaj produkt", class: "btn-submit" %>
+
+<% if @product.errors.any? %>
+    <ul>
+    <% @product.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+
+<% end %>
 <% end %>
 
 <%= link_to 'Powrót do listy Produktów', products_path %>
