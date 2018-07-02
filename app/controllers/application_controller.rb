@@ -21,11 +21,12 @@ class ApplicationController < ActionController::Base
   end
 
   def require_customer
-    redirect_to '/signup' unless
+    redirect_to customer_login_path unless
     current_customer.customer?
   end
 
   def require_merchant
-    redirect_to login_path unless
+    redirect_to merchant_login_path unless
     current_merchant.merchant?
+end
 end

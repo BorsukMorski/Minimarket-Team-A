@@ -20,7 +20,5 @@ resources :customers, only: [:new, :create]
 resources :c_sessions, only: [:new, :create]
 resources :m_sessions, only: [:new, :create]
 resources :merchants, only: [:new, :create, :index]
-resources :merchants do
-  resources :products
-end
+resources :products
 end
