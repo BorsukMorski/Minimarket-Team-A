@@ -1,6 +1,3 @@
-<h1 class="welcome">Witamy w Minimarkecie</h1>
-<p class="second_text">Zaloguj się, aby kontynuować</p>
-
 <% if session[:customer_id].nil? %>
   <%= link_to "Zaloguj się jako KLIENT", customer_login_path %>
   <%= link_to "Zarejestruj się jako KLIENT", customer_signup_path %>

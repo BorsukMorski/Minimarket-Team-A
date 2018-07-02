@@ -5,4 +5,7 @@ class Merchant < ApplicationRecord
   has_many :products
   has_secure_password
 
+  def merchant?
+    self.role == 'merchant'
+  end
 end

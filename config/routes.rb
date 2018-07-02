@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'products/new'
+
 # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'dashboard#new'
   #root 'dashboard#show'
@@ -12,10 +14,11 @@ Rails.application.routes.draw do
   delete 'merchant/logout', to: 'm_sessions#destroy'
 
   post 'customer/login', to: 'c_sessions#create'
+  get 'product', to: "products#new"
 
 resources :customers, only: [:new, :create]
 resources :c_sessions, only: [:new, :create]
 resources :m_sessions, only: [:new, :create]
 resources :merchants, only: [:new, :create, :index]
-
+resources :products
 end

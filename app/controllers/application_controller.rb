@@ -19,4 +19,14 @@ class ApplicationController < ActionController::Base
       @merchant ||= Merchant.find(session[:merchant_id])
     end
   end
+
+  def require_customer
+    redirect_to customer_login_path unless
+    current_customer.present?
+  end
+
+  def require_merchant
+    redirect_to merchant_login_path unless
+    current_merchant.present?
+end
 end

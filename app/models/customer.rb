@@ -7,4 +7,9 @@ class Customer < ApplicationRecord
   has_many :offers
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+
+  def customer?
+    self.role == 'customer'
+  end
+
 end
